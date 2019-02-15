@@ -27,16 +27,14 @@ while($row = mysqli_fetch_array($result)){
 </div>
 
 <div class="content">
-  <div class="row">
-    <h1>Dividing Group!!!</h1>
-  </div>
+
   <form action="createMember.php" method="post">
     <div class="row">
       <div class="col-25">
           <label>그룹명</label>
       </div>
       <div class="col-75">
-        <input type="text" name="song_groupName">
+        <?php echo '<input type="text" name="song_groupName" value = "'.$_POST['group_name'].'">'; ?>
       </div>
     </div>
      <div class="row">
@@ -49,28 +47,8 @@ while($row = mysqli_fetch_array($result)){
     </div>
     <input type="submit">
   </form>
-  <div class="row">
-    <ol>
-      <?= $list ?>
-    </ol>
 
-  </div>
 
-  <div class="row">
-    <?php
-    $sql = "SELECT * FROM song_groupname WHERE group_num = {$_GET['group_num']}";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
-
-     $sql_two = "SELECT song_name FROM song_member WHERE group_name = '$row[1]'";
-     $result_two = mysqli_query($conn, $sql_two);
-     while($rowtwo = mysqli_fetch_array($result_two)){
-
-     echo "<li>$rowtwo[0]</li>";
-   }
-     ?>
-
-  </div>
 </div>
 
 

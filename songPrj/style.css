@@ -53,9 +53,9 @@ input[type=submit]{
   border: none;
   color: white;
   padding:  10px 20px;
-  margin: 4px 2px;
+  margin: 20px 0 20px 0;
   cursor:pointer;
-  margin-top: 20px;
+
 }
 .col-25 {
   float: left;

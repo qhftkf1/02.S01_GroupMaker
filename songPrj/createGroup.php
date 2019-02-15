@@ -38,6 +38,8 @@ for($i = 0 ; $i <$count ; $i++){
       <a href= song_main.php>Home</a>
     </div>
     <div class="content">
+
+      
       <?php
       require_once('createGroup_rand.php');
 
