@@ -9,7 +9,7 @@ $query = "SELECT * FROM song_groupname";
 $result = mysqli_query($conn, $query);
 while($row = mysqli_fetch_array($result)){
   $title = $row['group_name'];
-  $list = $list."<li><a href = \"song_showgroupUpdate.php?group_num={$row['group_num']}\">{$title}</a></li>";
+$list = $list."<li><a href = \"song_showgroupUpdate.php?group_num={$row['group_num']} && group_name={$title}\">{$title}</a></li>";
 }
 
 
@@ -37,16 +37,34 @@ while($row = mysqli_fetch_array($result)){
   </div>
 
   <div class="row">
-    <form action="song_mainUpdate.php" method="post">
+    <form  action="song_makeGroup.php" method="post">
+      <input type="text" name="group_count"placeholder="~개조로 나누겠습니다.">
+      <?= '<input type="hidden" name="group_name" value="'.$_GET['group_name'].'">'; ?>
+      <input type="submit" value="그룹 지정">
+    </form>
+       <!-- <form action="song_mainUpdate.php" method="post">
       <?php
-      $sql_group = "SELECT group_name FROM song_groupname WHERE group_num = {$_GET['group_num']}";
-      $result_group = mysqli_query($conn, $sql_group);
-      $row_group = mysqli_fetch_array($result_group);
-       echo '<input type="hidden" name="group_name" value="'.$row_group[group_name].'">'?>
+      // $sql_group = "SELECT group_name FROM song_groupname WHERE group_num = {$_GET['group_num']}";
+      // $result_group = mysqli_query($conn, $sql_group);
+      // $row_group = mysqli_fetch_array($result_group);
+      //  echo '<input type="hidden" name="group_name" value="'.$row_group['group_name'].'">'
+       ?>
       <input type="submit" name="update" value="update">
-      <input type="submit" name="delete" value="delete">
+
 
     </form>
+
+    <form action="song_deleteMember.php" method="post">
+      <?php
+      // $sql_group = "SELECT group_name FROM song_groupname WHERE group_num = {$_GET['group_num']}";
+      // $result_group = mysqli_query($conn, $sql_group);
+      // $row_group = mysqli_fetch_array($result_group);
+      //  echo '<input type="hidden" name="group_name" value="'.$row_group['group_name'].'">'
+      //  ?>
+
+      <input type="submit" name="delete" value="delete">
+
+    </form> -->
   </div>
   <div class="row">
     <?php

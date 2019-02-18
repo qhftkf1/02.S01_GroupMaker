@@ -15,10 +15,8 @@ $result_group = mysqli_query($conn, $query_group);
 //테이블 안에 총 개수 구하기 count in table
 if($res = mysqli_query($conn, "SELECT * FROM song_member")){
   $row_cnt = mysqli_num_rows($res);
-  printf("%d", $row_cnt);
 }
-// 만들고자 하는 그룹 수
-$numofG = 2;
+
 
 //전과 같은 그룹에 배정되지 않기 위해 방문 배열 생성
 $arr = array();

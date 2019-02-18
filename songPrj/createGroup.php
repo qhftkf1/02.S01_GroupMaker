@@ -5,19 +5,26 @@ $conn = mysqli_connect(
   'gjsqudqks1/',
   'opentutorials'
 );
-$songNum = $_POST['song_num'];
+
+
+
+
+
+
 $songName = $_POST['song_name'];
+$groupName = $_POST['group_name'];
 
 $count = $_POST['count'];
+
 for($i = 0 ; $i <$count ; $i++){
+
     $sql = "
       INSERT INTO song_member
-      (song_num, song_name)
+      (song_name, group_name)
       VALUES(
-          '{$songNum[$i]}',
-          '{$songName[$i]}'
+          '{$songName[$i]}',
+          '{$groupName}'
         )
-        ON DUPLICATE KEY UPDATE song_num = '$songNum[$i]', song_name = '$songName[$i]'
     ";
 
     $result = mysqli_query($conn, $sql);
@@ -31,21 +38,18 @@ for($i = 0 ; $i <$count ; $i++){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Home</title>
   </head>
   <body>
     <div class="sidenav">
       <a href= song_main.php>Home</a>
+      <a href= song_showgroup.php>Group</a>
     </div>
     <div class="content">
-
-      
       <?php
-      require_once('createGroup_rand.php');
 
-      //
-      require_once('createGroup_show.php');
-    ?>
+      ?>
     </div>
   </body>
 </html>

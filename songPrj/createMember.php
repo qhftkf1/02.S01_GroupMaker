@@ -11,9 +11,11 @@ $sql = "
   (group_name)
   VALUES(
       '{$_POST['song_groupName']}'
+
     )
 ";
 $result = mysqli_query($conn, $sql);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,29 +28,28 @@ $result = mysqli_query($conn, $sql);
   <body>
     <div class="sidenav">
       <a href= song_main.php>Home</a>
+      <a href= song_showgroup.php>Group</a>ㅍ
     </div>
     <div class="content">
-    <?php
 
+    <?php
+    //main에서 설정한 멤버수 만큼 칸 추가
 
     $groupCount = $_POST['song_groupCount'];
     echo '<form action="createGroup.php" method="post">';
     for($count = 0; $count < $_POST['song_groupCount']; $count++){
     echo  '
 
-      <p> No : <input type="text" name="song_num[]"></p>
       <p> Name :<input type="text" name="song_name[]"></p>
+      <input type = "hidden" name="group_name" value="'.$_POST['song_groupName'].'">
       ';
     }
     echo '
-    <input type="hidden" name = "count" value ="';
-    echo $groupCount.'">
-    <p> 그룹수 : <input type="text" name= "groupCount"></p>
-    <input type="submit">
-    </form>';
-
-
+     <input type="text" name = "count" value ="'.$groupCount.'">
+     <input type="submit">
+     </form>';
     ?>
+
     </div>
   </body>
 </html>
