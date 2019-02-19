@@ -56,15 +56,13 @@ while($row = mysqli_fetch_row($res)){
   ";
 
     $resu = mysqli_query($conn, $sql);
-    echo '<br/>';
-    echo  $row[1].' 씨는'.$b.'조 입니다';
-    echo '<br/>';
+  
 }
 
 $query_show = "SELECT * FROM song_group
 LEFT JOIN song_member ON song_group.song_flag = song_member.song_num";
 $resu = mysqli_query($conn, $query_show);
-// 
+//
 // for($i = 0 ; $i < $numofG ;$i++){
 //   echo $i.'그룹';
 //

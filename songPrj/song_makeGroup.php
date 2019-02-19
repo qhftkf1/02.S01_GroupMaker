@@ -18,7 +18,7 @@ require 'createGroup_rand.php';
      </div>
 
      <div class="content">
-       <div class="row">
+      
          <?php
          for($i = 0 ; $i < $numofG ;$i++){
             echo '<div>
@@ -27,7 +27,6 @@ require 'createGroup_rand.php';
               if($i == $row_group[2]){
                 echo '<p>'.$row_group[5].'</p>';
               }
-
             }
               $resu = mysqli_query($conn, $query_show);
               echo    '</div>';
@@ -35,9 +34,7 @@ require 'createGroup_rand.php';
 
          ?>
 
-
-
-         </div>
+        
      </div>
    </body>
  </html>
