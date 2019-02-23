@@ -1,11 +1,10 @@
 <?php
 $conn = mysqli_connect(
-  'localhost',
-  'root',
-  'gjsqudqks1/',
-  'opentutorials'
+  'qhftkf1.cafe24.com',
+  'qhftkf1',
+  'tmdrl001!',
+  'qhftkf1'
 );
-
 
 
 
